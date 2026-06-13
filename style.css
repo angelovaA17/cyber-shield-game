@@ -1,0 +1,148 @@
+:root {
+    --bg-dark: #020617;
+    --panel-bg: rgba(15, 23, 42, 0.9);
+    --primary: #a855f7;
+    --secondary: #6366f1;
+    --accent: #f43f5e;
+    --success: #10b981;
+    --gold: #f59e0b;
+}
+
+body {
+    margin: 0; padding: 0;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background: linear-gradient(135deg, var(--bg-dark), #0f172a, #030712);
+    color: white; text-align: center;
+    overflow-x: hidden;
+}
+
+.container { max-width: 1100px; margin: auto; padding: 20px; }
+.hidden { display: none !important; }
+
+/* 🌀 Вчитување */
+#loadingScreen { margin-top: 150px; animation: fadeIn 1s ease-in-out; }
+.spinner {
+    width: 60px; height: 60px; border: 6px solid #1f2937;
+    border-top: 6px solid var(--primary); border-radius: 50%;
+    margin: 20px auto; animation: spin 1s linear infinite;
+}
+
+h1 { color: #c084fc; text-shadow: 0 0 25px rgba(168,85,247,0.6); font-size: 3rem; margin: 10px 0; }
+h2 { color: #f43f5e; }
+
+.badge-gold {
+    background: linear-gradient(90deg, var(--gold), #d97706);
+    color: black; padding: 6px 15px; display: inline-block;
+    border-radius: 20px; font-weight: bold; font-size: 14px; margin-bottom: 20px;
+}
+
+.screen {
+    background: var(--panel-bg); padding: 35px; border-radius: 24px;
+    border: 1px solid rgba(168, 85, 247, 0.2);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.8);
+    backdrop-filter: blur(10px); animation: fadeIn 0.4s ease;
+}
+
+/* 🏃‍♂️ АНИМИРАНА ПАТЕКА И АВАТАР */
+.path-wrapper {
+    background: #0f172a; padding: 25px; border-radius: 16px;
+    margin: 20px 0; border: 1px solid #334155; position: relative; overflow: hidden;
+}
+.path-line {
+    height: 6px; background: linear-gradient(90deg, var(--secondary), var(--success));
+    border-radius: 3px; width: 100%; position: relative; margin-top: 15px;
+}
+.avatar {
+    font-size: 34px; position: absolute; bottom: 32px; left: 0%;
+    transition: left 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    z-index: 5; text-shadow: 0 0 10px rgba(255,255,255,0.8);
+}
+.hole-sprite {
+    font-size: 38px; position: absolute; bottom: 25px; left: 50%;
+    transform: translateX(-50%); z-index: 2;
+}
+.path-endpoints { display: flex; justify-content: space-between; font-size: 12px; color: #64748b; margin-top: 8px;}
+
+/* 🎭 АНИМАЦИИ НА ЧОВЕЧЕТО */
+.celebrate { animation: jumpUncontrollably 0.6s ease-in-out 2; }
+.fall-in-hole { animation: sinkIntoHole 1.5s forwards ease-in-out; }
+
+@keyframes jumpUncontrollably {
+    0%, 100% { transform: translateY(0) scale(1); filter: drop-shadow(0 0 0px var(--success)); }
+    50% { transform: translateY(-25px) scale(1.2); filter: drop-shadow(0 0 15px var(--success)); }
+}
+@keyframes sinkIntoHole {
+    0% { transform: translateY(0) scale(1) rotate(0deg); opacity: 1; }
+    30% { transform: translateY(-10px) rotate(45deg); opacity: 1; }
+    100% { transform: translateY(30px) scale(0) rotate(720deg); opacity: 0; }
+}
+
+/* 💬 ЧАТ СЕКЦИЈА */
+.chat-section {
+    background: rgba(30, 41, 59, 0.5); padding: 20px; border-radius: 16px;
+    margin-top: 30px; border: 1px solid #334155; text-align: left;
+}
+#chatBox { height: 160px; overflow-y: auto; background: #020617; padding: 12px; border-radius: 10px; margin-bottom: 10px; border: 1px solid #1e293b;}
+.chat-msg { font-size: 14px; margin-bottom: 8px; border-bottom: 1px solid #1e293b; padding-bottom: 5px; }
+.chat-msg strong { color: var(--primary); }
+.chat-msg span { color: #64748b; font-size: 11px; float: right; }
+.chat-inputs { display: flex; gap: 10px; }
+.chat-inputs input { flex: 1; padding: 10px; border-radius: 8px; border: 1px solid #334155; background: #0f172a; color: white; }
+
+/* ВАНЕЛИ ЗА ИМЕ */
+.input-group input {
+    width: 80%; max-width: 400px; padding: 14px; font-size: 16px;
+    background: #0f172a; color: white; border: 2px solid #475569;
+    border-radius: 12px; text-align: center; transition: border 0.3s;
+}
+.input-group input:focus { border-color: var(--primary); outline: none; }
+
+/* 📜 СЕРТИФИКАТ ОДЛИКА */
+.certificate-frame {
+    background: #ffffff; color: #1e293b; padding: 40px; border: 10px double var(--gold);
+    border-radius: 4px; box-shadow: 0 0 40px rgba(245, 158, 11, 0.4); text-align: center;
+    position: relative; font-family: 'Georgia', serif; margin: 20px auto; max-width: 750px;
+}
+.certificate-frame h2 { color: #b45309; font-size: 28px; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 2px;}
+.certificate-frame .sub { font-style: italic; font-size: 16px; color: #475569; margin-bottom: 30px; }
+.certificate-name { font-size: 32px; font-weight: bold; color: #0f172a; border-bottom: 2px dashed #94a3b8; display: inline-block; padding: 0 30px; margin: 20px 0; }
+.cert-footer { display: flex; justify-content: space-between; margin-top: 50px; font-size: 14px; border-top: 1px solid #e2e8f0; padding-top: 15px;}
+
+/* Стандардни Стилови */
+.chapter-card { background: rgba(30, 41, 59, 0.4); border: 1px solid #334155; border-radius: 16px; margin: 20px 0; padding: 20px; text-align: left; }
+.chapter-card h4 { margin: 0 0 15px 0; color: #a5b4fc; font-size: 18px; border-bottom: 1px solid #334155; padding-bottom: 5px;}
+.nodes-grid { display: flex; gap: 12px; flex-wrap: wrap; }
+.map-node { width: 45px; height: 45px; line-height: 45px; text-align: center; border-radius: 12px; font-weight: bold; cursor: pointer; border: 1px solid #334155; }
+.map-node.locked { background: #111827; color: #4b5563; cursor: not-allowed; }
+.map-node.active { background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; box-shadow: 0 0 15px var(--primary); }
+.map-node.completed { background: var(--success); color: white; }
+
+#stats { background: #0f172a; padding: 15px; border-radius: 14px; display: flex; justify-content: space-around; font-size: 15px; font-weight: bold; margin-bottom: 15px; border: 1px solid #1e293b;}
+#cyberShop { background: rgba(245, 158, 11, 0.05); border: 1px dashed var(--gold); padding: 12px; border-radius: 12px; margin-bottom: 20px; font-size: 13px; }
+#cyberShop button { background: #1f2937; border: 1px solid var(--gold); color: white; padding: 6px 12px; margin: 4px; border-radius: 6px; cursor: pointer; }
+#cyberShop button:hover { background: var(--gold); color: black; }
+
+.quiz-container { text-align: left; background: rgba(0,0,0,0.3); padding: 20px; border-radius: 16px; margin: 15px 0;}
+#question { font-size: 19px; line-height: 1.5; margin-bottom: 20px; border-left: 4px solid var(--secondary); padding-left: 15px; }
+.answerBtn { display: block; width: 100%; padding: 15px; margin: 10px 0; font-size: 15px; background: #1e293b; color: white; border: 1px solid #334155; border-radius: 10px; cursor: pointer; text-align: left; }
+.answerBtn:hover { background: #334155; border-color: var(--primary); }
+.correct { background: var(--success) !important; }
+.wrong { background: var(--accent) !important; }
+
+.cyber-btn { padding: 15px 40px; font-size: 18px; font-weight: bold; border: none; border-radius: 14px; background: linear-gradient(90deg, var(--primary), var(--secondary)); color: white; cursor: pointer; box-shadow: 0 5px 20px rgba(168,85,247,0.4); }
+.small-btn { background: #334155; color: white; border: none; padding: 8px 14px; border-radius: 6px; cursor: pointer; }
+
+.boss-box { background: rgba(244, 63, 94, 0.05); padding: 12px; border-radius: 12px; border: 1px solid rgba(244, 63, 94, 0.1); margin-bottom: 15px;}
+#bossSection { font-weight: bold; color: var(--accent); margin-bottom: 5px; }
+#progressContainer { width: 100%; height: 8px; background: #374151; border-radius: 10px; overflow: hidden; }
+#progressBar { width: 100%; height: 100%; background: linear-gradient(90deg, var(--accent), var(--primary)); transition: width 0.4s; }
+
+.ticker-wrap { width: 100%; background: #0f172a; padding: 8px 0; margin-top: 20px; overflow: hidden; border-radius: 8px;}
+.ticker { white-space: nowrap; display: inline-block; animation: marquee 20s linear infinite; color: #64748b; font-size: 13px; padding-left: 100%; }
+
+.badge { display: inline-block; background: #2e1065; padding: 6px 12px; margin: 4px; border-radius: 10px; border: 1px solid var(--primary); font-size: 11px; }
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+@keyframes marquee { 0% { transform: translate3d(0, 0, 0); } 100% { transform: translate3d(-100%, 0, 0); } }
+

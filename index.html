@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="mk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Shield: Advanced Media Command Center</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ЕКРАН 1: ВЧИТУВАЊЕ -->
+<div id="loadingScreen">
+    <h1>🛡️ CYBER SHIELD: GLOBAL MEDIA HUB</h1>
+    <p>Синхронизација на интерактивните патеки и комуникациските алгоритми...</p>
+    <div class="spinner"></div>
+</div>
+
+<div class="container hidden" id="mainContainer">
+
+    <!-- ЕКРАН 2: ПОЧЕТНО ИНТРО И ВНЕСУВАЊЕ ИМЕ -->
+    <div id="intro" class="screen">
+        <h1>🛡️ CYBER SHIELD</h1>
+        <div class="badge-gold">МЕДИУМИ И КОМУНИКАЦИИ - ПРОФЕСИОНАЛНО ИЗДАНИЕ</div>
+
+        <!-- Еве го поправеното поле кое фалеше за да не кочи -->
+        <p style="font-size: 14px; color: #94a3b8; margin-bottom: 20px;">
+            Сегашен рекорд на овој уред: <span id="highScoreValue" style="color: #f59e0b; font-weight: bold;">0</span> поени
+        </p>
+
+        <h2>Мисија: Одбрана на Јавното Мислење</h2>
+        <p>
+            Година е 2045. Системот <strong>DarkBot</strong> го контролира информацискиот простор со лажни вести и манипулативни алгоритми.<br><br>
+            Внесете го вашето име за да го покренете Сајбер-Аватарот на патеката на вистината и да заработите официјален сертификат!
+        </p>
+
+        <div class="input-group">
+            <input type="text" id="usernameInput" placeholder="Внесете го вашето Име и Презиме..." autocomplete="off">
+        </div>
+        <button id="startBtn" class="cyber-btn" style="margin-top: 15px;">ВЛЕЗИ ВО КОМАНДЕН ЦЕНТАР</button>
+    </div>
+
+    <!-- ЕКРАН 3: МАПА НА НИВОА (LEVEL SELECTOR) + ГУЕСТБУК/ЧАТ -->
+    <div id="levelSelectorPage" class="screen hidden">
+        <h2>📊 СИСТЕМСКА МЕДИУМСКА МАПА</h2>
+        <p>Добредојдовте, <span id="playerGreeting" style="color:#c084fc; font-weight:bold;"></span>. Изберете го активното поглавје.</p>
+
+        <div id="chaptersContainer"></div>
+
+        <div class="map-footer">
+            <span class="legend-item"><span class="dot green"></span> Поминато</span>
+            <span class="legend-item"><span class="dot blue"></span> Тековно</span>
+            <span class="legend-item"><span class="dot gray"></span> Заклучено</span>
+        </div>
+
+        <!-- ЦЕНТРАЛЕН ЧАТ / КОМЕНТАРИ -->
+        <div class="chat-section">
+            <h3>💬 Студентски Форум & Коментари за играта</h3>
+            <div id="chatBox"></div>
+            <div class="chat-inputs">
+                <input type="text" id="chatComment" placeholder="Оставете коментар или впечаток за предметот...">
+                <button onclick="addComment()" class="small-btn" style="background:var(--primary);">Објави</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ЕКРАН 4: ГЛАВНА ИГРА СО АНИМИРАНО ЧОВЕЧЕ -->
+    <div id="gamePage" class="screen hidden">
+        <div class="game-header">
+            <button id="backToMapBtn" class="small-btn">◀ Назад кон Мапа</button>
+            <span id="gameChapterTitle">Поглавје</span>
+        </div>
+
+        <!-- 🏃‍♂️ ИНТЕРАКТИВНА ПАТЕКА СО ЧОВЕЧЕ -->
+        <div class="path-wrapper">
+            <div class="path-line"></div>
+            <div id="holeElement" class="hole-sprite hidden">🕳️</div>
+            <div id="avatarSprite" class="avatar">🧍‍♂️</div>
+            <div class="path-endpoints">
+                <span>Почеток</span>
+                <span>Цел 🏆</span>
+            </div>
+        </div>
+
+        <div id="stats">
+            <div>❤️ Животи: <span id="lives">3</span></div>
+            <div>🧠 Писменост: <span id="credibility">100</span>%</div>
+            <div>⭐ Скор: <span id="scoreValue">0</span></div>
+            <div>🔥 Комбо: x<span id="comboMultiplier">1</span></div>
+            <div>⏱️ Време: <span id="timer">300</span>с</div>
+        </div>
+
+        <div id="cyberShop">
+            <strong>🛒 ПР Комуникациски Модули:</strong>
+            <button onclick="buyItem('life')">🛡️ Ангажирај Новинари (+1 Живот | 70 поени)</button>
+            <button onclick="buyItem('credibility')">💡 Fact-Check Кампања (+25% Кредибилитет | 50 поени)</button>
+        </div>
+
+        <div class="boss-box">
+            <div id="bossSection">🤖 Влијание на DarkBot Пропагандата: <span id="bossHP">500</span> HP</div>
+            <div id="progressContainer"><div id="progressBar"></div></div>
+        </div>
+
+        <div class="quiz-container">
+            <h3 id="levelTitle"></h3>
+            <div id="question"></div>
+            <div id="answers"></div>
+        </div>
+
+        <button id="nextBtn" class="cyber-btn hidden">СЛЕДЕН ПРЕДИЗВИК ➔</button>
+
+        <div class="ticker-wrap">
+            <div class="ticker" id="newsTicker">ИЗВЕСТУВАЊЕ: Системот за проверка на факти работи со полн капацитет...</div>
+        </div>
+    </div>
+
+    <!-- ЕКРАН 5: ФИНАЛЕН ЕКРАН СО СЕРТИФИКАТ -->
+    <div id="finalScreen" class="screen hidden"></div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
