@@ -19,7 +19,7 @@ body {
 .container { max-width: 1100px; margin: auto; padding: 20px; }
 .hidden { display: none !important; }
 
-/* 🌀 Вчитување */
+
 #loadingScreen { margin-top: 150px; animation: fadeIn 1s ease-in-out; }
 .spinner {
     width: 60px; height: 60px; border: 6px solid #1f2937;
@@ -43,7 +43,7 @@ h2 { color: #f43f5e; }
     backdrop-filter: blur(10px); animation: fadeIn 0.4s ease;
 }
 
-/* 🏃‍♂️ АНИМИРАНА ПАТЕКА И АВАТАР */
+
 .path-wrapper {
     background: #0f172a; padding: 25px; border-radius: 16px;
     margin: 20px 0; border: 1px solid #334155; position: relative; overflow: hidden;
@@ -63,7 +63,7 @@ h2 { color: #f43f5e; }
 }
 .path-endpoints { display: flex; justify-content: space-between; font-size: 12px; color: #64748b; margin-top: 8px;}
 
-/* 🎭 АНИМАЦИИ НА ЧОВЕЧЕТО */
+
 .celebrate { animation: jumpUncontrollably 0.6s ease-in-out 2; }
 .fall-in-hole { animation: sinkIntoHole 1.5s forwards ease-in-out; }
 
@@ -77,7 +77,7 @@ h2 { color: #f43f5e; }
     100% { transform: translateY(30px) scale(0) rotate(720deg); opacity: 0; }
 }
 
-/* 💬 ЧАТ СЕКЦИЈА */
+
 .chat-section {
     background: rgba(30, 41, 59, 0.5); padding: 20px; border-radius: 16px;
     margin-top: 30px; border: 1px solid #334155; text-align: left;
@@ -89,7 +89,6 @@ h2 { color: #f43f5e; }
 .chat-inputs { display: flex; gap: 10px; }
 .chat-inputs input { flex: 1; padding: 10px; border-radius: 8px; border: 1px solid #334155; background: #0f172a; color: white; }
 
-/* ВАНЕЛИ ЗА ИМЕ */
 .input-group input {
     width: 80%; max-width: 400px; padding: 14px; font-size: 16px;
     background: #0f172a; color: white; border: 2px solid #475569;
@@ -97,7 +96,7 @@ h2 { color: #f43f5e; }
 }
 .input-group input:focus { border-color: var(--primary); outline: none; }
 
-/* 📜 СЕРТИФИКАТ ОДЛИКА */
+
 .certificate-frame {
     background: #ffffff; color: #1e293b; padding: 40px; border: 10px double var(--gold);
     border-radius: 4px; box-shadow: 0 0 40px rgba(245, 158, 11, 0.4); text-align: center;
@@ -108,7 +107,6 @@ h2 { color: #f43f5e; }
 .certificate-name { font-size: 32px; font-weight: bold; color: #0f172a; border-bottom: 2px dashed #94a3b8; display: inline-block; padding: 0 30px; margin: 20px 0; }
 .cert-footer { display: flex; justify-content: space-between; margin-top: 50px; font-size: 14px; border-top: 1px solid #e2e8f0; padding-top: 15px;}
 
-/* Стандардни Стилови */
 .chapter-card { background: rgba(30, 41, 59, 0.4); border: 1px solid #334155; border-radius: 16px; margin: 20px 0; padding: 20px; text-align: left; }
 .chapter-card h4 { margin: 0 0 15px 0; color: #a5b4fc; font-size: 18px; border-bottom: 1px solid #334155; padding-bottom: 5px;}
 .nodes-grid { display: flex; gap: 12px; flex-wrap: wrap; }
